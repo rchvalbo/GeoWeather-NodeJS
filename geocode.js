@@ -13,18 +13,13 @@ var findLocation = function (address) {
         geocoder.geocode(address, function (err, data) {
 
             if (err) reject(err);
-
-            //console.log(data.results[0]);
+;
             var geoObj = data.results[0].address_components;
-
             geoObj.forEach(function (comp) {
                 if (comp.types[0] == "postal_code") {
-                    //console.log(comp.short_name);
                     locObj = comp.short_name;
                 }
             })
-            //console.log(locObj);
-
             resolve(locObj);
         });
     });

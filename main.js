@@ -1,12 +1,24 @@
 var geocoder = require("./geocode");
 var weather = require("./weather");
+var inquirer = require("inquirer");
 
 var nodeArgs = process.argv;
 
 var address = "";
 
-for (var i = 2; i < nodeArgs.length; i++) {
-    //console.log(nodeArgs[i]);
+var account = process.argv[2];
+
+if(account === "admin"){
+   console.log("Print out all info that has been logged.");
+   }
+else if(account === "user") {
+   console.log("Input new info to file.");
+   }
+else {
+    console.log("Account type not recognized...");
+}
+
+for (var i = 3; i < nodeArgs.length; i++) {
     address += nodeArgs[i] + " ";
 }
 
